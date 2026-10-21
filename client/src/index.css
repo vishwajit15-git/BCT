@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Mayo Clinic Global Reset & Base Typography ───────────────────────────── */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #1a202c;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Accessibility focus ring matching Mayo Clinic standard */
+  :focus-visible {
+    outline: 2px solid #003087;
+    outline-offset: 2px;
+  }
+
+  /* Custom subtle clinical scrollbar */
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-track { background: #f7f9fa; }
+  ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+}
+
+/* ── Mayo Clinic Clinical Component Layer ─────────────────────────────────── */
+@layer components {
+  /* Mayo Clinic primary action button */
+  .mayo-btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-[#003087] hover:bg-[#00205b]
+           text-white font-semibold text-sm px-5 py-2.5 rounded-full transition-colors
+           duration-150 shadow-sm disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  /* Mayo Clinic secondary / outline action button */
+  .mayo-btn-outline {
+    @apply inline-flex items-center justify-center gap-2 bg-white hover:bg-[#f0f5fa]
+           text-[#003087] font-semibold text-sm px-5 py-2.5 rounded-full border-2
+           border-[#003087] transition-colors duration-150 disabled:opacity-50;
+  }
+
+  /* Mayo Clinic card pattern */
+  .mayo-card {
+    @apply bg-white border border-[#d1dbe5] rounded-xl p-6 shadow-sm
+           hover:shadow-md transition-shadow duration-200;
+  }
+
+  /* Mayo Clinic interactive tile */
+  .mayo-tile {
+    @apply bg-white border border-[#d1dbe5] rounded-xl p-6 text-left transition-all
+           duration-200 hover:border-[#003087] hover:shadow-md block;
+  }
+
+  /* Mayo Clinic search input */
+  .mayo-input {
+    @apply w-full bg-white border border-[#a0aec0] text-[#1a202c] placeholder-gray-500
+           rounded-full px-5 py-3 text-sm focus:outline-none focus:ring-2
+           focus:ring-[#003087] focus:border-transparent transition-all;
+  }
+
+  /* Mayo Clinic badges */
+  .mayo-badge-online {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full
+           bg-[#ecfdf5] text-[#15803d] border border-[#a7f3d0];
+  }
+
+  .mayo-badge-info {
+    @apply inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full
+           bg-[#eef4fa] text-[#003087] border border-[#bfdbfe];
+  }
+
+  .mayo-badge-neutral {
+    @apply inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full
+           bg-[#f1f5f9] text-[#475569] border border-[#e2e8f0];
+  }
+
+  /* Mayo Clinic headline styling */
+  .mayo-heading-serif {
+    font-family: 'Georgia', Cambria, 'Times New Roman', serif;
+    color: #00205b;
+  }
+}

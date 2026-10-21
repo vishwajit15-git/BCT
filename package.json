@@ -1,0 +1,21 @@
+{
+  "name": "medichain",
+  "version": "1.0.0",
+  "private": true,
+  "description": "MediChain — Blockchain-based Medical Record System (SPPU BE CSE 2019 Pattern)",
+  "scripts": {
+    "client": "npm run dev --prefix client",
+    "server": "npm run dev --prefix server",
+    "blockchain:node": "npm run node --prefix blockchain",
+    "blockchain:compile": "npm run compile --prefix blockchain",
+    "blockchain:test": "npm run test --prefix blockchain",
+    "blockchain:deploy:local": "npm run deploy:local --prefix blockchain",
+    "test:server": "npm test --prefix server",
+    "test:all": "npm run blockchain:test && npm run test:server",
+    "install:all": "npm install && npm install --prefix client && npm install --prefix server && npm install --prefix blockchain",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
